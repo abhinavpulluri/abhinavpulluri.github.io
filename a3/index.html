@@ -16,6 +16,15 @@
             let b = Number(input2.value)
             alert(a*b)
         }
+        function div() {
+            let a = Number(input1.value)
+            let b = Number(input2.value)
+            if (b === 0) {
+                alert("Cannot divide by zero");
+            } else {
+                alert(a / b);
+            }
+        }
     </script>
 </head>
 <body>
@@ -24,6 +33,7 @@
         <li>Take input of two numbers</li>
         <li>Display the sum of two numbers</li>
         <li>Display the product of two numbers</li>
+        <li>Display the quotient</li>
     </ul>
 
     <input type="number" id="input1" />
@@ -31,5 +41,5 @@
 
     <button onclick= add() style="background-color: yellow;">Sum</button> 
     <button onclick=prod() style="background-color: green;">Product</button>
-</body>
+    <button onclick=div() style="background-color: red;">Quotient</button>
 </html>
