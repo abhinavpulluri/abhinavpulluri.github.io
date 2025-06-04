@@ -8,15 +8,22 @@
         function greet(){
             alert(txtName.value);
         }
+        function add() {
+            alert(input1.value + input2.value);
+        }
     </script>
 </head>
 <body>
     <h2>Objectives</h2>
     <ul>
-        <li>Use button tag(along with CSS)</li>
+        <li>Take input of two numbers</li>
+        <li>Display the sum of two numbers</li>
+        <li>Display the difference of two numbers</li>
     </ul>
 
-    <input type="text" id="txtName" />
-    <button   style="background-color= yellow;">Click</button> 
+    <input type="number" id="input1" />
+    <input type="number" id="input2" />
+
+    <button onclick= add() style="background-color: yellow;">Click</button> 
 </body>
 </html>
