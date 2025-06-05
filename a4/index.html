@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
+</head>
+<body>
+    <h2>Objectives</h2>
+    <ul>
+        <li>Take input of two numbers</li>
+        <li>When clicked button, it should call calc</li>
+        <li>calc function is used to callback add, subtract, multiply, divide</li>
+    </ul>
+
+    <div id="result"></div>
+
     <script>
         function add(a, b) {
             return a + b;
@@ -25,24 +37,19 @@
             return a / b;
         }
 
+
         function calc() {
             const num1 = Number(document.getElementById('input1').value);
             const num2 = Number(document.getElementById('input2').value);
-            document.write("Sum: " + add(num1, num2) + "<br>");
-            document.write("Difference: " + subtract(num1, num2) + "<br>");
-            document.write("Product: " + multiply(num1, num2) + "<br>");
-            document.write("Quotient: " + divide(num1, num2) + "<br>");
+            let result = "";
+            result += "Sum: " + add(num1, num2) + "<br>";
+            result += "Difference: " + subtract(num1, num2) + "<br>";
+            result += "Product: " + multiply(num1, num2) + "<br>";
+            const quotient = divide(num1, num2);
+            result += "Quotient: " + (quotient !== null ? quotient : "undefined") + "<br>";
+            document.getElementById('result').innerHTML = result;
         }
     </script>
-</head>
-<body>
-    <h2>Objectives</h2>
-    <ul>
-        <li>Take input of two numbers</li>
-        <li>When clicked button, it should call calc</li>
-        <li>calc function is used to callback add, subtract, multiply, divide</li>
-    </ul>
-
     <input type="number" id="input1" />
     <input type="number" id="input2" />
     <button onclick= calc() style="background-color: yellow;">Calc</button> 
