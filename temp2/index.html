@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+        const handlesubmit = () => {
+            let name = document.getElementById("txtName").value;
+            let age = document.getElementById("txtAge").value;
+            let str = `Here is the information: <h2>${name}-${age}</h2>`
+            dvResult.innerHTML = str;
+        }
+    </script>
 </head>
 <body>
     <script>
@@ -56,15 +64,18 @@
 
         //Now we are looking at the concept of callback functions in JavaScript
 
-        const f1 = () => {
-            console.log("f1 function");
-        }
+        // const f1 = () => {
+        //     console.log("f1 function");
+        // }
 
-        const main = (fn) => {
-            fn();
-        }
-        main(f1);
-
+        // const main = (fn) => {
+        //     fn();
+        // }
+        // main(f1);
     </script>
+    <p><input type="text" id="txtName" placeholder="name"/></p>
+    <p><input type="number" id="txtAge" placeholder="age"/></p>
+    <button onclick="handlesubmit()" style="background-color: yellow;">Submit</button>
+    <div id="dvResult"></div>
 </body>
 </html>
