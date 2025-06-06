@@ -1,42 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h2>Objectives</h2>
-    <ul>
-        <li>Take input from the user</li>
-        <li>upon clicking add fruit button, add the fruit to the list and display below</li>
-    </ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fruit List</title>
+    <script>
+  let fruits = [];
+  function add() {
+    const input = document.getElementById("txt1").value;
+    if (input.trim() === "") return;
+    fruits.push(input);
+    renderList();
+    document.getElementById("txt1").value = "";
+  }
 
+  function del(index) {
+    fruits = fruits.filter((_, idx) => idx !== index);
+    renderList();
+  }
 
-    <p><input type="text" id="fruitInput" placeholder="Enter a fruit name"></p>
-    <p><button id="addButton">Add Fruit</button></p>
-    <p>Fruits List:</p>
-    <ul id="fruitList"></ul>  
+  function renderList() {
+    const listHTML = fruits
+      .map(
+        (fruit, idx) =>
+          `<li>${fruit} <button onclick="del(${idx})">Delete</button></li>`
+      )
+      .join("");
+    document.getElementById("fruitList").innerHTML = listHTML;
+  }
+</script>
+  </head>
+  <body>
+    <div>
+        <h2>Objectives</h2>
+        <ul>
+            <li>Take input from the user</li>
+            <li>upon clicking add fruit button, add the fruit to the list and display below</li>
+            <li>add a delete button for every element in the fruit list, which deletes the respective fruit(using filter)</li>
+         </ul>
+    </div>
+    
+    <div>
+      <h1>Fruit List</h1>
+      <input type="text" id="txt1" placeholder="Enter fruit name" />
+      <button onclick="add()">Add</button>
+      <ul id="fruitList"></ul>
+    </div>
 
     
-
-    <script>
-        const addButton = document.getElementById('addButton');
-        const fruitInput = document.getElementById('fruitInput');
-        const fruitList = document.getElementById('fruitList'); 
-
-        addButton.addEventListener('click', function() {
-            const fruitName = fruitInput.value.trim();
-            if (fruitName) {
-                const listItem = document.createElement('li');
-                listItem.textContent = fruitName;
-                fruitList.appendChild(listItem);
-                fruitInput.value = '';
-            } else {
-                alert('Please enter a fruit name.');
-            }
-        });
-    </script>
-            
-</body>
+  </body>
 </html>
