@@ -9,7 +9,7 @@
     <h2>Objectives</h2>
     <ul>
         <li>Take input from the user</li>
-        <li>upon clicking add button, add the fruit to the list and display below</li>
+        <li>upon clicking add fruit button, add the fruit to the list and display below</li>
     </ul>
 
 
@@ -24,7 +24,7 @@
         const addButton = document.getElementById('addButton');
         const fruitInput = document.getElementById('fruitInput');
         const fruitList = document.getElementById('fruitList'); 
-        
+
         addButton.addEventListener('click', function() {
             const fruitName = fruitInput.value.trim();
             if (fruitName) {
