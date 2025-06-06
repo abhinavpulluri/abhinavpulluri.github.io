@@ -46,8 +46,22 @@
         // display these elements using id infront
         // score.map((element) => console.log("ID00" + element));
 
-        const newArr = score.map((element) => "ID00" + element);
-        console.log(newArr);
+        // const newArr = score.map((element) => "ID00" + element);
+        // console.log(newArr);
+
+        // const newArr = score.filter((element) =>  (element > 2));
+        // console.log(newArr);
+
+        // const newArr = score.reduce((sum, element) =>  sum + element);
+        // console.log(newArr);
+
+        const add = (...args) => {
+            const total = args.reduce((sum, element) => sum + element, 0);
+            return total; 
+        } 
+
+        const result = add(4, 6, 7, 9, 3);
+        console.log(result);
 
     </script>
 </body>
