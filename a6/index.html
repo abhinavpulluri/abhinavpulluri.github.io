@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Objectives</h2>
+    <ul>
+        <li>Take input from the user</li>
+        <li>upon clicking add button, add the fruit to the list and display below</li>
+    </ul>
+
+
+    <p><input type="text" id="fruitInput" placeholder="Enter a fruit name"></p>
+    <p><button id="addButton">Add Fruit</button></p>
+    <p>Fruits List:</p>
+    <ul id="fruitList"></ul>  
+
+    
+
+    <script>
+        const addButton = document.getElementById('addButton');
+        const fruitInput = document.getElementById('fruitInput');
+        const fruitList = document.getElementById('fruitList'); 
+        
+        addButton.addEventListener('click', function() {
+            const fruitName = fruitInput.value.trim();
+            if (fruitName) {
+                const listItem = document.createElement('li');
+                listItem.textContent = fruitName;
+                fruitList.appendChild(listItem);
+                fruitInput.value = '';
+            } else {
+                alert('Please enter a fruit name.');
+            }
+        });
+    </script>
+            
+</body>
+</html>
