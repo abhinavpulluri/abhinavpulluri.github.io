@@ -1,5 +1,5 @@
 const users = [];
-const user = {};
+let user = {};
 
 const showLogin = () => {
     let str= `
