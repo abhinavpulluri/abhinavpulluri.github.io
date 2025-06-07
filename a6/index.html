@@ -19,6 +19,10 @@
     renderList();
   }
 
+  function search(){
+    const input = document.getElementById
+  }
+
   function renderList() {
     const listHTML = fruits
       .map(
@@ -37,6 +41,7 @@
             <li>Take input from the user</li>
             <li>upon clicking add fruit button, add the fruit to the list and display below</li>
             <li>add a delete button for every element in the fruit list, which deletes the respective fruit(using filter)</li>
+            <li>add a search button, to search a fruit in the list</li>
          </ul>
     </div>
     
@@ -44,6 +49,7 @@
       <h1>Fruit List</h1>
       <input type="text" id="txt1" placeholder="Enter fruit name" />
       <button onclick="add()">Add</button>
+      <button onclick="search()">Search</button>
       <ul id="fruitList"></ul>
     </div>
 
