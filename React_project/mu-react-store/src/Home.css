@@ -1,0 +1,11 @@
+.App-Home-Row {
+    display: flex;
+    justify-content: center;
+}
+
+.App-Home-Row div {
+    margin: 10px;
+    padding: 10px;
+    border: #a49494 1px solid;
+    border-radius: 10px;
+}
