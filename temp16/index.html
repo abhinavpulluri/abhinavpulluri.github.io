@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <input type="text" id="searchInput" placeholder="Search" />
+      <button onclick="searchUser()">Search</button>
+    </div>
+    <div id="searchResult"></div>
+    <div id="dvUsers"></div>
+    <script>
+      const url = "https://jsonplaceholder.typicode.com/users";
+      let allUsers = [];
+      let str = "<div>";
+      fetch(url)
+        .then((res) => res.json())
+        .then((users) => {
+          allUsers = users;
+          str = "<div>";
+          users.forEach((user) => {
+            str += `<div>${user.name}</div>`;
+          });
+          dvUsers.innerHTML = str + "</div>";
+        });
+
+      function searchUser() {
+        const query = document.getElementById("searchInput").value.trim().toLowerCase();
+        const resultDiv = document.getElementById("searchResult");
+        const dvUsersDiv = document.getElementById("dvUsers");
+        if (!query) {
+          resultDiv.innerHTML = "Please enter a search term.";
+
+          let str = "<div>";
+          allUsers.forEach((user) => {
+            str += `<div>${user.name}</div>`;
+          });
+          dvUsersDiv.innerHTML = str + "</div>";
+          return;
+        }
+        const found = allUsers.find(
+          (user) =>
+            user.name.toLowerCase().includes(query) ||
+            user.email.toLowerCase().includes(query) ||
+            user.phone.toLowerCase().includes(query) ||
+            user.website.toLowerCase().includes(query)
+        );
+        if (found) {
+          resultDiv.innerHTML = "";
+          dvUsersDiv.innerHTML = `<div><strong>Name:</strong> ${found.name}<br><strong>Email:</strong> ${found.email}<br><strong>Phone:</strong> ${found.phone}<br><strong>Website:</strong> ${found.website}</div>`;
+        } else {
+          resultDiv.innerHTML = "No user found.";
+          dvUsersDiv.innerHTML = "";
+        }
+      }
+    </script>
+  </body>
+</html>

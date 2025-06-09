@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src= "script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="App-Row">
+    <div id="root"></div>
+    <script>
+        const products = [
+            {
+                id: 1,
+                name: "Product 1",
+                desc: "Description of Product 1",
+                price: 2100,
+                imgURL: "https://picsum.photos/id/1/300/300"
+            },
+            {
+                id: 2,
+                name: "Product 2",
+                desc: "Description of Product 2",
+                price: 2200,
+                imgURL: "https://picsum.photos/id/2/300/300"
+            },
+            {
+                id: 1,
+                name: "Product 3",
+                desc: "Description of Product 3",
+                price: 2300,
+                imgURL: "https://picsum.photos/id/3/300/300"
+            }
+        ];
+        let str = "<div>"
+        products.map((product) => {
+            str += `
+            <div>
+                <img src="${product.imgURL}" alt="${product.name}">
+                <h2>${product.name}</h2>
+                <p>${product.desc}</p>
+                <p>Price: ${product.price}</p>
+                <button>Add to Cart</button>
+            </div>`;
+        });
+        str += "</div>";
+        root.innerHTML = str;
+    </script>
+</body>
+</html>
